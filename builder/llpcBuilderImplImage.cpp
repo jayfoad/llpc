@@ -2400,7 +2400,7 @@ Value* BuilderImplImage::HandleFragCoordViewIndex(
                                      pBuiltInTy,
                                      getInt32(BuiltInFragCoord),
                                      {},
-                                     &*GetInsertPoint());
+                                     this);
         pFragCoord->setName("FragCoord");
         pFragCoord = CreateShuffleVector(pFragCoord, pFragCoord, { 0, 1 });
         pFragCoord = CreateFPToSI(pFragCoord, VectorType::get(getInt32Ty(), 2));
@@ -2449,7 +2449,7 @@ Value* BuilderImplImage::HandleFragCoordViewIndex(
                                      pBuiltInTy,
                                      getInt32(BuiltInViewIndex),
                                      {},
-                                     &*GetInsertPoint());
+                                     this);
         pViewIndex->setName("ViewIndex");
         pCoord = CreateInsertElement(pCoord, pViewIndex, 2);
     }

@@ -209,7 +209,7 @@ Value* BuilderImplInOut::ReadGenericInputOutput(
                               pResultTy,
                               args,
                               Attribute::ReadOnly,
-                              &*GetInsertPoint());
+                              this);
 
     pResult->setName(instName);
     return pResult;
@@ -307,7 +307,7 @@ Instruction* BuilderImplInOut::CreateWriteGenericOutput(
                     getVoidTy(),
                     args,
                     NoAttrib,
-                    &*GetInsertPoint());
+                    this);
 }
 
 // =====================================================================================================================
@@ -515,7 +515,7 @@ Value* BuilderImplInOut::ModifyAuxInterpValue(
                                        VectorType::get(getFloatTy(), 2),
                                        evalArgs,
                                        Attribute::ReadOnly,
-                                       &*GetInsertPoint());
+                                       this);
         }
         else
         {
@@ -670,7 +670,7 @@ Instruction* BuilderImplInOut::CreateWriteXfbOutput(
                     getVoidTy(),
                     args,
                     NoAttrib,
-                    &*GetInsertPoint());
+                    this);
 }
 
 // =====================================================================================================================
@@ -840,7 +840,7 @@ Value* BuilderImplInOut::ReadBuiltIn(
                               pResultTy,
                               args,
                               Attribute::ReadOnly,
-                              &*GetInsertPoint());
+                              this);
 
     if (instName.isTriviallyEmpty())
     {
@@ -930,7 +930,7 @@ Instruction* BuilderImplInOut::CreateWriteBuiltInOutput(
                              getVoidTy(),
                              args,
                              NoAttrib,
-                             &*GetInsertPoint()));
+                             this));
 }
 
 // =====================================================================================================================

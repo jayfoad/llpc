@@ -55,7 +55,7 @@ Instruction* BuilderImplMisc::CreateEmitVertex(
                                 getInt32Ty(),
                                 getInt32(spv::BuiltInWaveId),
                                 NoAttrib,
-                                &*GetInsertPoint());
+                                this);
 
     // Do the sendmsg.
     // [9:8] = stream, [5:4] = 2 (emit), [3:0] = 2 (GS)
@@ -78,7 +78,7 @@ Instruction* BuilderImplMisc::CreateEndPrimitive(
                                 getInt32Ty(),
                                 getInt32(spv::BuiltInWaveId),
                                 NoAttrib,
-                                &*GetInsertPoint());
+                                this);
 
     // Do the sendmsg.
     // [9:8] = stream, [5:4] = 1 (cut), [3:0] = 2 (GS)

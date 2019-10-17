@@ -25,7 +25,7 @@ void main (void)
 ; SHADERTEST-LABEL: {{^// LLPC}} SPIR-V lowering results
 ; SHADERTEST: call void @llpc.output.export.generic{{.*}}v4f64
 ; SHADERTEST: call void @llpc.output.export.generic{{.*}}f32
-; SHADERTEST: call double @llpc.output.import.generic.f64{{.*}}
+; SHADERTEST: call {{.*}} double @llpc.output.import.generic.f64{{.*}}
 ; SHADERTEST: call void @llpc.output.export.generic{{.*}}f64
 ; SHADERTEST: AMDLLPC SUCCESS
 */

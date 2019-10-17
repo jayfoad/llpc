@@ -22,7 +22,7 @@ void main(void)
 ; SHADERTEST-LABEL: {{^// LLPC}} SPIR-V lowering results
 ; SHADERTEST: call void @llpc.output.export.generic{{.*}}f32(i32 0, i32 0, i32 0, i32 -1, float 0x3FE6666660000000)
 ; SHADERTEST: call void @llpc.output.export.generic{{.*}}f32(i32 0, i32 0, i32 1, i32 -1, float 4.500000e+00)
-; SHADERTEST: call float @llpc.output.import.generic.f32{{.*}}(i32 0, i32 0, i32 1, i32 -1)
+; SHADERTEST: call {{.*}} float @llpc.output.import.generic.f32{{.*}}(i32 0, i32 0, i32 1, i32 -1)
 ; SHADERTEST: call void @llpc.output.export.generic{{.*}}f32(i32 0, i32 0, i32 2, i32 -1, float %{{[0-9]*}})
 ; SHADERTEST: AMDLLPC SUCCESS
 */

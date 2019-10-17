@@ -21,7 +21,7 @@ void main()
 ; SHADERTEST: call {{.*}} <2 x float> @_Z22InterpolateAtVertexAMDPDv2_fi
 ; SHADERTEST: call {{.*}} <2 x i32> @_Z22InterpolateAtVertexAMDPDv2_ii
 ; SHADERTEST-LABEL: {{^// LLPC}} SPIR-V lowering results
-; SHADERTEST: call <2 x float> @llpc.input.import.interpolant.v2f32{{.*}}
+; SHADERTEST: call {{.*}} <2 x float> @llpc.input.import.interpolant.v2f32{{.*}}
 ; SHADERTEST: call <2 x i32> @llpc.input.import.interpolant.v2i32{{.*}}
 ; SHADERTEST: AMDLLPC SUCCESS
 */

@@ -28,16 +28,16 @@ void main()
 ; SHADERTEST-LABEL: {{^// LLPC}} SPIR-V lowering results
 ; SHADERTEST: call i32 @llpc.input.import.builtin.InvocationId{{.*}}
 ; SHADERTEST: call i32 @llpc.input.import.builtin.PrimitiveId{{.*}}
-; SHADERTEST: call <4 x float> @llpc.input.import.builtin.Position.v4f32{{.*}}
-; SHADERTEST: call float @llpc.input.import.builtin.PointSize.f32{{.*}}
+; SHADERTEST: call {{.*}} <4 x float> @llpc.input.import.builtin.Position.v4f32{{.*}}
+; SHADERTEST: call {{.*}} float @llpc.input.import.builtin.PointSize.f32{{.*}}
 ; SHADERTEST: call [3 x float] @llpc.input.import.builtin.ClipDistance.a3f32{{.*}}
 ; SHADERTEST: call [3 x float] @llpc.input.import.builtin.CullDistance.a3f32{{.*}}
-; SHADERTEST: call <4 x float> @llpc.input.import.builtin.Position.v4f32{{.*}}
-; SHADERTEST: call float @llpc.input.import.builtin.PointSize.f32{{.*}}
+; SHADERTEST: call {{.*}} <4 x float> @llpc.input.import.builtin.Position.v4f32{{.*}}
+; SHADERTEST: call {{.*}} float @llpc.input.import.builtin.PointSize.f32{{.*}}
 ; SHADERTEST: call [3 x float] @llpc.input.import.builtin.ClipDistance.a3f32{{.*}}
 ; SHADERTEST: call [3 x float] @llpc.input.import.builtin.CullDistance.a3f32{{.*}}
-; SHADERTEST: call <4 x float> @llpc.input.import.builtin.Position.v4f32{{.*}}
-; SHADERTEST: call float @llpc.input.import.builtin.PointSize.f32{{.*}}
+; SHADERTEST: call {{.*}} <4 x float> @llpc.input.import.builtin.Position.v4f32{{.*}}
+; SHADERTEST: call {{.*}} float @llpc.input.import.builtin.PointSize.f32{{.*}}
 ; SHADERTEST: call [3 x float] @llpc.input.import.builtin.ClipDistance.a3f32{{.*}}
 ; SHADERTEST: call [3 x float] @llpc.input.import.builtin.CullDistance.a3f32{{.*}}
 ; SHADERTEST: AMDLLPC SUCCESS

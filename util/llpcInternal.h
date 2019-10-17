@@ -34,6 +34,7 @@
 
 #include "llvm/Analysis/TargetLibraryInfo.h"
 #include "llvm/IR/Function.h"
+#include "llvm/IR/IRBuilder.h"
 #include "llvm/IR/LegacyPassManager.h"
 #include "llvm/IR/Module.h"
 
@@ -251,6 +252,15 @@ llvm::CallInst* EmitCall(llvm::Module*                             pModule,
                          llvm::ArrayRef<llvm::Value *>             args,
                          llvm::ArrayRef<llvm::Attribute::AttrKind> attribs,
                          llvm::BasicBlock*                         pInsertAtEnd);
+
+// Emits a LLVM function call (inserted by the specified builder), builds it automically based on return type
+// and its parameters.
+llvm::CallInst* EmitCall(llvm::Module*                             pModule,
+                         llvm::StringRef                           funcName,
+                         llvm::Type*                               pRetTy,
+                         llvm::ArrayRef<llvm::Value *>             args,
+                         llvm::ArrayRef<llvm::Attribute::AttrKind> attribs,
+                         llvm::IRBuilder<>*                        pBuilder);
 
 // Adds LLVM-style type mangling suffix for the specified return type and args to the name.
 void AddTypeMangling(llvm::Type* pReturnTy, llvm::ArrayRef<llvm::Value*> args, std::string& name);

@@ -155,6 +155,45 @@ CallInst* EmitCall(
 }
 
 // =====================================================================================================================
+// Emits a LLVM function call (inserted by the specified builder), builds it automically based on return type
+// and its parameters.
+CallInst* EmitCall(
+    Module*                       pModule,          // [in] LLVM module
+    StringRef                     funcName,         // Name string of the function
+    Type*                         pRetTy,           // [in] Return type
+    ArrayRef<Value *>             args,             // [in] Parameters
+    ArrayRef<Attribute::AttrKind> attribs,          // Attributes
+    IRBuilder<>*                  pBuilder)         // [in] Builder to use to insert this call
+{
+    Function* pFunc = dyn_cast_or_null<Function>(pModule->getFunction(funcName));
+    if (pFunc == nullptr)
+    {
+        std::vector<Type*> argTys;
+        for (auto arg : args)
+        {
+            argTys.push_back(arg->getType());
+        }
+
+        auto pFuncTy = FunctionType::get(pRetTy, argTys, false);
+        pFunc = Function::Create(pFuncTy, GlobalValue::ExternalLinkage, funcName, pModule);
+
+        pFunc->setCallingConv(CallingConv::C);
+        pFunc->addFnAttr(Attribute::NoUnwind);
+
+        for (auto attrib : attribs)
+        {
+            pFunc->addFnAttr(attrib);
+        }
+    }
+
+    auto pCallInst = pBuilder->CreateCall(pFunc, args);
+    pCallInst->setCallingConv(CallingConv::C);
+    pCallInst->setAttributes(pFunc->getAttributes());
+
+    return pCallInst;
+}
+
+// =====================================================================================================================
 // Gets LLVM-style name for type.
 void GetTypeName(
     Type*         pTy,         // [in] Type to get mangle name

@@ -21,7 +21,7 @@ void main()
 ; SHADERTEST-LABEL: {{^// LLPC}} SPIR-V lowering results
 ; SHADERTEST-DAG: call <2 x i32> @llpc.input.import.generic.v2i32{{.*}}
 ; SHADERTEST-DAG: call i32 @llpc.input.import.generic{{.*}}
-; SHADERTEST-DAG: call <4 x float> @llpc.input.import.generic.v4f32{{.*}}
+; SHADERTEST-DAG: call {{.*}} <4 x float> @llpc.input.import.generic.v4f32{{.*}}
 ; SHADERTEST: AMDLLPC SUCCESS
 */
 // END_SHADERTEST

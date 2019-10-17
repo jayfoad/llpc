@@ -34,11 +34,11 @@ void main()
 ; SHADERTEST-DAG: call i32 @llpc.input.import.builtin.Layer{{.*}}
 ; SHADERTEST-DAG: call i32 @llpc.input.import.builtin.SampleId{{.*}}
 ; SHADERTEST-DAG: call i32 @llpc.input.import.builtin.PrimitiveId{{.*}}
-; SHADERTEST-DAG: call <2 x float> @llpc.input.import.builtin.PointCoord.v2f32.i32
+; SHADERTEST-DAG: call {{.*}} <2 x float> @llpc.input.import.builtin.PointCoord.v2f32.i32
 ; SHADERTEST-DAG: call [3 x float] @llpc.input.import.builtin.CullDistance.a3f32.i32
 ; SHADERTEST-DAG: call [4 x float] @llpc.input.import.builtin.ClipDistance.a4f32.i32
 ; SHADERTEST-DAG: call i1 @llpc.input.import.builtin.FrontFacing{{.*}}
-; SHADERTEST-DAG: call <4 x float> @llpc.input.import.builtin.FragCoord.v4f32.i32
+; SHADERTEST-DAG: call {{.*}} <4 x float> @llpc.input.import.builtin.FragCoord.v4f32.i32
 ; SHADERTEST-DAG: call [1 x i32] @llpc.input.import.builtin.SampleMask.a1i32.i32
 ; SHADERTEST: AMDLLPC SUCCESS
 */

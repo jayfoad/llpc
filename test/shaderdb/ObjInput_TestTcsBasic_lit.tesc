@@ -19,7 +19,7 @@ void main (void)
 ; SHADERTEST: call i32 @llpc.input.import.builtin.InvocationId{{.*}}
 ; SHADERTEST: call float @llpc.input.import.generic.f32{{.*}}
 ; SHADERTEST: call i32 @llpc.input.import.builtin.InvocationId{{.*}}
-; SHADERTEST: call double @llpc.input.import.generic.f64{{.*}}
+; SHADERTEST: call {{.*}} double @llpc.input.import.generic.f64{{.*}}
 ; SHADERTEST: AMDLLPC SUCCESS
 */
 // END_SHADERTEST

@@ -30,11 +30,11 @@ void main()
 ; SHADERTEST-LABEL: {{^// LLPC}} SPIRV-to-LLVM translation results
 ; SHADERTEST-LABEL: {{^// LLPC}} SPIR-V lowering results
 ; SHADERTEST-DAG: call i32 @llpc.input.import.generic{{.*}}
-; SHADERTEST-DAG: call <3 x float> @llpc.input.import.generic.v3f32{{.*}}
-; SHADERTEST-DAG: call <4 x float> @llpc.input.import.generic.v4f32{{.*}}
-; SHADERTEST-DAG: call <4 x float> @llpc.input.import.generic.v4f32{{.*}}
-; SHADERTEST-DAG: call <4 x float> @llpc.input.import.generic.v4f32{{.*}}
-; SHADERTEST-DAG: call <4 x float> @llpc.input.import.generic.v4f32{{.*}}
+; SHADERTEST-DAG: call {{.*}} <3 x float> @llpc.input.import.generic.v3f32{{.*}}
+; SHADERTEST-DAG: call {{.*}} <4 x float> @llpc.input.import.generic.v4f32{{.*}}
+; SHADERTEST-DAG: call {{.*}} <4 x float> @llpc.input.import.generic.v4f32{{.*}}
+; SHADERTEST-DAG: call {{.*}} <4 x float> @llpc.input.import.generic.v4f32{{.*}}
+; SHADERTEST-DAG: call {{.*}} <4 x float> @llpc.input.import.generic.v4f32{{.*}}
 ; SHADERTEST-LABEL: {{^// LLPC}} pipeline patching results
 ; SHADERTEST-DAG: call float @llvm.amdgcn.interp.mov
 ; SHADERTEST-DAG: call float @llvm.amdgcn.interp.p1

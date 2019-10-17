@@ -65,7 +65,7 @@ Value* BuilderImplDesc::CreateLoadBufferDesc(
                                          pDescIndex,
                                      },
                                      NoAttrib,
-                                     pInsertPos);
+                                     this);
     pBufDescLoadCall->setName(instName);
 
     pBufDescLoadCall = EmitCall(pInsertPos->getModule(),
@@ -73,7 +73,7 @@ Value* BuilderImplDesc::CreateLoadBufferDesc(
                                 getInt8Ty()->getPointerTo(ADDR_SPACE_BUFFER_FAT_POINTER),
                                 pBufDescLoadCall,
                                 Attribute::ReadNone,
-                                pInsertPos);
+                                this);
 
     return CreateBitCast(pBufDescLoadCall, GetBufferDescTy(pPointeeTy));
 }
@@ -100,7 +100,7 @@ Value* BuilderImplDesc::CreateIndexDescPtr(
                                 pIndex,
                             },
                             NoAttrib,
-                            &*GetInsertPoint());
+                            this);
         pDescPtr->setName(instName);
     }
     return pDescPtr;
@@ -121,7 +121,7 @@ Value* BuilderImplDesc::CreateLoadDescFromPtr(
                           cast<StructType>(pDescPtr->getType())->getElementType(0)->getPointerElementType(),
                           pDescPtr,
                           NoAttrib,
-                          &*GetInsertPoint());
+                          this);
     pDesc->setName(instName);
     return pDesc;
 }
@@ -143,7 +143,7 @@ Value* BuilderImplDesc::CreateGetSamplerDescPtr(
                                  getInt32(binding),
                              },
                              NoAttrib,
-                             &*GetInsertPoint());
+                             this);
     pDescPtr->setName(instName);
     return pDescPtr;
 }
@@ -165,7 +165,7 @@ Value* BuilderImplDesc::CreateGetImageDescPtr(
                                  getInt32(binding),
                              },
                              NoAttrib,
-                             &*GetInsertPoint());
+                             this);
     pDescPtr->setName(instName);
     return pDescPtr;
 }
@@ -187,7 +187,7 @@ Value* BuilderImplDesc::CreateGetTexelBufferDescPtr(
                                  getInt32(binding),
                              },
                              NoAttrib,
-                             &*GetInsertPoint());
+                             this);
     pDescPtr->setName(instName);
     return pDescPtr;
 }
@@ -209,7 +209,7 @@ Value* BuilderImplDesc::CreateGetFmaskDescPtr(
                                  getInt32(binding),
                              },
                              NoAttrib,
-                             &*GetInsertPoint());
+                             this);
     pDescPtr->setName(instName);
     return pDescPtr;
 }
@@ -230,7 +230,7 @@ Value* BuilderImplDesc::CreateLoadPushConstantsPtr(
                                            pPushConstantsPtrTy,
                                            {},
                                            NoAttrib,
-                                           pInsertPos);
+                                           this);
     pPushConstantsLoadCall->setName(instName);
     return pPushConstantsLoadCall;
 }
@@ -269,6 +269,6 @@ Value* BuilderImplDesc::CreateGetBufferDescLength(
                     getInt32Ty(),
                     pBufferDesc,
                     Attribute::ReadNone,
-                    pInsertPos);
+                    this);
 }
 
