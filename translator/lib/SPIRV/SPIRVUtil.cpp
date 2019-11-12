@@ -1104,10 +1104,9 @@ Constant *getScalarOrVectorConstantInt(Type *T, uint64_t V, bool IsSigned) {
   if (auto IT = dyn_cast<IntegerType>(T))
     return ConstantInt::get(IT, V);
   if (auto VT = dyn_cast<VectorType>(T)) {
-    std::vector<Constant *> EV(
+    return ConstantVector::getSplat(
         VT->getVectorNumElements(),
         getScalarOrVectorConstantInt(VT->getVectorElementType(), V, IsSigned));
-    return ConstantVector::get(EV);
   }
   llvm_unreachable("Invalid type");
   return nullptr;
